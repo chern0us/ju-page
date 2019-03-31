@@ -1,0 +1,16 @@
+@import './header.scss';
+@import './banner.scss';
+@import './pies.scss';
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+.content {
+    margin-top: 90px;
+    float: left;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
