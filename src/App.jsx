@@ -9,7 +9,7 @@ const navPanel = () => (
     <div className="navpanel_element">CONTACT</div>
   </div>
 );
-const socials = () => ( 
+const socials = () => (
   <div className="header_social">
     <div className="social_button">
       <i class="fab fa-twitter" />
@@ -63,6 +63,7 @@ const pie = percent => (
       <div class="right-side half-circle" />
     </div>
     <div className="shadow" />
+    <div className="text big faded">LOREM IPSUM</div>
   </div>
 );
 const pies = () => (
@@ -81,7 +82,23 @@ const pies = () => (
     </div>
   </div>
 );
-
+const quote = () => <div className="quote">
+  <div className="quote_header">
+  <div className="pies_text">
+      <div className="text">Hello</div>
+      <div className="text big">quality & fresh</div>
+      <div className="text faded">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+    </div>
+  </div>
+  <div className="quote_block">
+    <div className="quote_text">            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+            asperiores in fuga laudantium rerum illum explicabo magnam
+            laboriosam harum animi? Harum exercitationem commodi magni error
+            maxime quibusdam dolor, esse neque.</div>
+  </div>
+</div> 
 export default class App extends React.Component {
   render() {
     return (
@@ -90,6 +107,7 @@ export default class App extends React.Component {
         <div className="content">
           {banner()}
           {pies()}
+          {quote()}
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
             asperiores in fuga laudantium rerum illum explicabo magnam
