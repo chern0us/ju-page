@@ -1,0 +1,59 @@
+.banner {
+    position: relative;
+    text-align: center;
+    display: block;
+    float: left;
+}
+.banner_image {
+    float: left;
+    width:100%;
+    height: auto;
+    position: relative;
+}
+.banner_text {
+    user-select: none;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    font-family: Pacifico; 
+    color: white;
+    z-index: 10;
+    font-size:6vw;
+    &.big {
+        top:10vw;
+        font-family: 'Nunito', sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 10vw;
+    }
+}
+.banner_container {
+    position: absolute;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.banner_button{
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    background-color: #dd3f3a;
+    border: 1px #f15257 solid;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    &:hover {
+        background-color: #9b2f2b;
+    }
+}
