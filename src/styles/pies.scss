@@ -1,46 +1,64 @@
 .pies_text {
 
-    align-self: center;
-    left: 0;
-    right: 0;
-    z-index: 10;
+  -ms-flex-item-align: center;
+
+      -ms-grid-row-align: center;
+
+      align-self: center;
+  left: 0;
+  right: 0;
+  z-index: 10;
 
 
 }
 .text {
-    font-size:1em;
-    color: #333333;
-    font-family: Pacifico; 
-    user-select: none;
-    text-align: center;
-    &.big {
-        font-family: 'Nunito', sans-serif;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1em;
-    }
-    &.faded {
-        font-family: 'Nunito', sans-serif;
-        color: #c3c3c3;
-        font-size: 0.8em;
-        margin-top: 10px;
-    }
+  font-size:1em;
+  color: #333333;
+  font-family: Pacifico; 
+  -webkit-user-select: none; 
+     -moz-user-select: none; 
+      -ms-user-select: none; 
+          user-select: none;
+  text-align: center;
+  &.big {
+      font-family: 'Nunito', sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1em;
+  }
+  &.faded {
+      font-family: 'Nunito', sans-serif;
+      color: #c3c3c3;
+      font-size: 0.8em;
+      margin-top: 10px;
+  }
 }
 .pies_container {
-    position: relative;
-    flex-direction: column;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .pies_strip {
-    display: flex;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 
@@ -52,173 +70,187 @@ $label-font-size-redo: $default-size * 2.3;
 
 // -- mixins
 @mixin size($width, $height) {
-  height: $height;
-  width: $width;
+height: $height;
+width: $width;
 }
 
 @mixin draw-progress($progress, $color) {
-  .pie {
-    .half-circle {
-      border-color: $color;
+.pie {
+  .half-circle {
+    border-color: $color;
+  }
+
+  .left-side {
+    -webkit-transform: rotate($progress * 3.6deg);
+        -ms-transform: rotate($progress * 3.6deg);
+            transform: rotate($progress * 3.6deg);
+  }
+
+  @if $progress <= 50 {
+    .right-side {
+      display: none;
     }
+  } @else {
+    clip: rect(auto, auto, auto, auto);
 
-    .left-side {
-      transform: rotate($progress * 3.6deg);
-    }
-
-    @if $progress <= 50 {
-      .right-side {
-        display: none;
-      }
-    } @else {
-      clip: rect(auto, auto, auto, auto);
-
-      .right-side {
-        transform: rotate(180deg);
-      }
+    .right-side {
+      -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+              transform: rotate(180deg);
     }
   }
 }
+}
 
 @mixin draw-progress--solid($progress, $color, $bg-color) {
-  background: linear-gradient(to right, $color 50%, $bg-color 50%);
-  
-  &:before {
-    @if $progress <= 50 {
-      background: $bg-color;
-      transform: rotate((100 - (50 - $progress)) / 100 * 360deg * -1);
-    } @else {
-      background: $color;
-      transform: rotate((100 - $progress) / 100 * 360deg);
-    }
+background: -webkit-gradient(linear, left top, right top, color-stop(50%, $color), color-stop(50%, $bg-color));
+background: -webkit-linear-gradient(left, $color 50%, $bg-color 50%);
+background: -o-linear-gradient(left, $color 50%, $bg-color 50%);
+background: linear-gradient(to right, $color 50%, $bg-color 50%);
+
+&:before {
+  @if $progress <= 50 {
+    background: $bg-color;
+    -webkit-transform: rotate((100 - (50 - $progress)) / 100 * 360deg * -1);
+        -ms-transform: rotate((100 - (50 - $progress)) / 100 * 360deg * -1);
+            transform: rotate((100 - (50 - $progress)) / 100 * 360deg * -1);
+  } @else {
+    background: $color;
+    -webkit-transform: rotate((100 - $progress) / 100 * 360deg);
+        -ms-transform: rotate((100 - $progress) / 100 * 360deg);
+            transform: rotate((100 - $progress) / 100 * 360deg);
   }
+}
 }
 
 // -- selectors
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+-webkit-box-sizing: border-box;
+        box-sizing: border-box;
 }
 
 .charts-container {
-  &:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
+&:after {
+  clear: both;
+  content: '';
+  display: table;
+}
 }
 
 .pie-wrapper {
-  @include size($default-size, $default-size);
-  float: left;
-  margin: 15px;
-  position: relative;
-  
-  &:nth-child(3n + 1) {
-    clear: both;
-  }
+@include size($default-size, $default-size);
+float: left;
+margin: 15px;
+position: relative;
 
-  .pie {
+&:nth-child(3n + 1) {
+  clear: both;
+}
+
+.pie {
+  @include size(100%, 100%);
+  clip: rect(0, $default-size, $default-size, $default-size / 2);
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  .half-circle {
     @include size(100%, 100%);
-    clip: rect(0, $default-size, $default-size, $default-size / 2);
+    border: ($default-size / 10) solid #3498db;
+    border-radius: 50%;
+    clip: rect(0, $default-size / 2, $default-size, 0);
     left: 0;
     position: absolute;
     top: 0;
-
-    .half-circle {
-      @include size(100%, 100%);
-      border: ($default-size / 10) solid #3498db;
-      border-radius: 50%;
-      clip: rect(0, $default-size / 2, $default-size, 0);
-      left: 0;
-      position: absolute;
-      top: 0;
-    }
-  }
-
-  .label {
-    background: $bg-color;
-    border-radius: 50%;
-    bottom: $label-font-size-redo / 10;
-    color: #333a41;
-    cursor: default;
-    display: block;
-    width: 100%;
-    font-size: $label-font-size * 1.5;
-    // left: auto;
-    // right: auto;
-    position: absolute;
-    text-align: center;
-    top: $label-font-size-redo / 10;
-
-  }
-
-  .shadow {
-    @include size(100%, 100%);
-    border: $default-size / 10 solid #bdc3c7;
-    border-radius: 50%;
-  }
-
-  &.style-2 {
-    .label {
-      background: none;
-      font-family: 'Nunito', sans-serif;
-      font-weight: bold;
-    }
-  }
-
-  &.progress-30 {
-    @include draw-progress(30, #3498db);
-  }
-
-  &.progress-60 {
-    @include draw-progress(60, #ee4747);
-  }
-
-  &.progress-90 {
-    @include draw-progress(90, #ee4747);
-  }
-
-  &.progress-45 {
-    @include draw-progress(45, #ee4747);
-  }
-
-  &.progress-75 {
-    @include draw-progress(75, #ee4747);
-  }
-
-  &.progress-95 {
-    @include draw-progress(95, #ee4747);
   }
 }
 
-.pie-wrapper--solid {
+.label {
+  background: $bg-color;
   border-radius: 50%;
-  overflow: hidden;
+  bottom: $label-font-size-redo / 10;
+  color: #333a41;
+  cursor: default;
+  display: block;
+  width: 100%;
+  font-size: $label-font-size * 1.5;
+  // left: auto;
+  // right: auto;
+  position: absolute;
+  text-align: center;
+  top: $label-font-size-redo / 10;
 
-  &:before {
-    border-radius: 0 100% 100% 0 / 50%;
-    content: '';
-    display: block;
-    height: 100%;
-    margin-left: 50%;
-    transform-origin: left;
-  }
-  
+}
+
+.shadow {
+  @include size(100%, 100%);
+  border: $default-size / 10 solid #bdc3c7;
+  border-radius: 50%;
+}
+
+&.style-2 {
   .label {
-    background: transparent;
+    background: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
   }
-  
-  &.progress-65 {
-    @include draw-progress--solid(65, #e67e22, $bg-color);
-  }
-  
-  &.progress-25 {
-    @include draw-progress--solid(25, #9b59b6, $bg-color);
-  }
-  
-  &.progress-88 {
-    @include draw-progress--solid(88, #3498db, $bg-color);
-  }
+}
+
+&.progress-30 {
+  @include draw-progress(30, #3498db);
+}
+
+&.progress-60 {
+  @include draw-progress(60, #ee4747);
+}
+
+&.progress-90 {
+  @include draw-progress(90, #ee4747);
+}
+
+&.progress-45 {
+  @include draw-progress(45, #ee4747);
+}
+
+&.progress-75 {
+  @include draw-progress(75, #ee4747);
+}
+
+&.progress-95 {
+  @include draw-progress(95, #ee4747);
+}
+}
+
+.pie-wrapper--solid {
+border-radius: 50%;
+overflow: hidden;
+
+&:before {
+  border-radius: 0 100% 100% 0 / 50%;
+  content: '';
+  display: block;
+  height: 100%;
+  margin-left: 50%;
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+}
+
+.label {
+  background: transparent;
+}
+
+&.progress-65 {
+  @include draw-progress--solid(65, #e67e22, $bg-color);
+}
+
+&.progress-25 {
+  @include draw-progress--solid(25, #9b59b6, $bg-color);
+}
+
+&.progress-88 {
+  @include draw-progress--solid(88, #3498db, $bg-color);
+}
 }
