@@ -1,0 +1,28 @@
+
+.products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    margin-top: 4rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+}
+.products_element {
+    display:  block;
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.products_image {
+    height: 2.5rem;
+}
+.element_text {
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #354052;
+}
