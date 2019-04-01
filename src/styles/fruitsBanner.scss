@@ -1,0 +1,111 @@
+.fruitsBanner {
+    position: relative;
+    margin-top: 4rem;
+    margin-bottom: 15%;
+    width: 100%;
+    height: 30vw;
+    max-height: 300px;
+    @media only screen and (max-width: 800px) {
+        margin-bottom: 5%;
+    }
+
+}
+.fuitsBanner_container{
+    width: 70%;
+    height: 100%;
+    float: right;
+    position: relative;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ee3979), to(#f17733));
+    background-image: -webkit-linear-gradient(top, #ee3979, #f17733);
+    background-image: -o-linear-gradient(top, #ee3979, #f17733);
+    background-image: linear-gradient(to bottom, #ee3979, #f17733);
+    position: relative;
+}
+.fruitsBanner_wrapper {
+    width: 30%;
+    height: auto;
+    position: absolute;
+}
+
+.fruitsBanner_image {
+    width: 60%;
+    top: -8vw;
+    left: 1%;
+    height: auto;
+    position: absolute;
+}
+.fuitsBanner_text {
+    position: relative;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    margin-left: 35vw;
+    // margin-right: -45vw;
+    
+    font-family: Pacifico; 
+    color: white;
+    z-index: 15;
+    font-size:4vw;
+    @media only screen and (max-width: 600px) {
+        font-size:5vw;
+    }
+
+    &.faded {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #cd3a3a;
+        margin-left: 38vw;
+        margin-top: 0;
+        margin-bottom: -1vw;
+       
+        @media only screen and (max-width: 600px) {
+            margin-bottom: -2vw;
+        }
+    }
+    &.left {
+        margin-left: 31vw;
+        &::after {
+            content: "";
+            background-image: url('../img/arrow.png');
+            height: 7vw;
+            width: 7vw;
+            top:1vw;
+            bottom: 0;
+            background-size: 7vw auto;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+    }
+}
+.fuitsBanner_quote {
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    display: block;
+    width: 42vw;
+    float: right;
+    @media only screen and (max-width: 900px) {
+        display: none;
+    }
+}
+.fruitsBanner_button{
+    position: absolute;
+    left: 60%;
+    
+    @media only screen and (max-width: 900px) {
+        margin-left: -8vw;
+    }
+    bottom: -2rem;
+    width: 8rem;
+    z-index: 15;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    background-color: #212121;
+    border: 1px #626262 solid;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    &:hover {
+        background-color: #626262;
+    }
+}
