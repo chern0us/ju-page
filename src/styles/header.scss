@@ -1,13 +1,12 @@
 @mixin  shadow {
     -webkit-box-shadow: 0px 2px 35px -16px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 35px -16px rgba(0,0,0,0.75);
     box-shadow: 0px 2px 35px -16px rgba(0,0,0,0.75);
 }
 $font-color: #354052;
 $font-active-color: #f37288;
 $font-hover-color: #bd2f58;
 .header {
-    height: 90px;
+    height: 70px;
     background-color: rgba($color: #ffffff, $alpha: 0.95);
     position: fixed;
     display: block;
@@ -22,15 +21,25 @@ $font-hover-color: #bd2f58;
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .header_logo {
     height: 1.2rem;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 .header_navpanel{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -47,13 +56,20 @@ $font-hover-color: #bd2f58;
     &:not(.active):hover {
         color: $font-hover-color;
     }
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: pointer;
 }
 .header_social {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     @media only screen and (max-width: 600px) {
-        display: none;
+        &:not(.forced) {
+            display: none;
+        };
     }
 }
 .social_button {
@@ -63,10 +79,14 @@ $font-hover-color: #bd2f58;
         width: 35px;
         border: 1px #dee0e6 solid;
         border-radius: 100%;
-        display: inline-block;
         margin: 2px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), to(rgba(243,245,248,1)));
+        background-image: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,245,248,1) 100%);
+        background-image: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,245,248,1) 100%);
         background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,245,248,1) 100%);
         &:hover {
+            background-image: -webkit-radial-gradient(center, ellipse, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+            background-image: -o-radial-gradient(center, ellipse, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
             background-image: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
         }
         cursor: pointer;
