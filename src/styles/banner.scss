@@ -11,7 +11,10 @@
     position: relative;
 }
 .banner_text {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -27,18 +30,28 @@
         font-weight: bold;
         font-size: 10vw;
     }
+    &.colored {
+        color: #333333;
+    }
 }
 .banner_container {
     position: absolute;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     width: 50%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .banner_button{
     margin-left: auto;
