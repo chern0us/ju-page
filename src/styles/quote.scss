@@ -1,32 +1,64 @@
 .quote {
     margin-top: 2rem;
+    width: 100%;
 }
 .quote_block {
     width: 100%;
     height: 290px;
     background-color: #f7f7f7;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.quote_wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
     position: relative;
     &::after {
         content: "";
         position: absolute;
         right: 1rem;
-        bottom: -1.5rem;
+        bottom: -3rem;
         background-image: url("../img/qutoes.png");
-        background-size: 5rem 5rem;
-        height: 5rem;
-        width: 5rem;
+        background-size: 6rem 6rem;
+        height: 6rem;
+        width: 6rem;
     } 
     &::before {
-        font-family: "Font Awesome 5 Free"; font-weight: 900; 
         content: "\f406";
+        font-family: "Font Awesome 5 Free"; font-weight: 900; 
+        border-top-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 0.2rem;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 0.2rem;
         color: #354052;
         vertical-align: center;
+        text-align: center;
         line-height: 10rem;
         font-size: 6vw;
         height: 10rem;
-        width: 5rem;
+        width: 20rem;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#f06276), to(#f39c33));
+        background-image: -webkit-linear-gradient(top, #f06276, #f39c33);
+        background-image: -o-linear-gradient(top, #f06276, #f39c33);
         background-image: linear-gradient(to bottom, #f06276, #f39c33);
     }
 }
