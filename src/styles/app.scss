@@ -2,6 +2,10 @@
 @import './banner.scss';
 @import './pies.scss';
 @import './quote.scss';
+@import './products.scss';
+@import './fruits.scss';
+@import './fruitsBanner.scss';
+@import './footer.scss';
 html, body {
     width: 100%;
     height: 100%;
@@ -9,7 +13,17 @@ html, body {
     position: relative;
 }
 .content {
-    margin-top: 90px;
+    margin-top: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     float: left;
     width: 100%;
     position: relative;
